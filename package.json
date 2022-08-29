@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "tsc": "tsc",
-    "exe": "node dist/blockchain.js"
+    "start-1": "tsc && node dist/blockchain.js",
+    "start-2": "tsc && node dist/blockchain-fc.js"
   },
   "author": "Sergey Besedin",
   "license": "ISC",

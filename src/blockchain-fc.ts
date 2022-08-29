@@ -64,6 +64,7 @@ function blockchain() {
 
 const miner = (amount: number): void => {
   const bc = blockchain(); //создаем первичный блок
+  console.log(bc.latestBlock);
 
   for (let i = 1; i <= amount; i++) {
     bc.addBlock(`${i} block`); //добавляем блок

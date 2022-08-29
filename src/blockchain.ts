@@ -90,11 +90,13 @@ class Blockchain {
 }
 
 const miner = (isCalculate: boolean, amount: number): void => {
-  const blockchain = new Blockchain(isCalculate); //создаем первичный блок
+  const bc = new Blockchain(isCalculate); //создаем первичный блок
+  console.log(bc);
 
   for (let i = 1; i <= amount; i++) {
-    blockchain.addBlock(`${i} block`); //добавляем блок
+    bc.addBlock(`${i} block`); //добавляем блок
   }
 };
 
+//true - запуск блокчейна с вычислением nonce (займет небольшой промежуток времени), false - без вычислений
 miner(true, 10); //запуск
