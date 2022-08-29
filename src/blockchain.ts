@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 import { IBlock } from './typing/typing';
 
-// реализация через классы
+//реализация через классы
 
 //блокчейн без доказательств проделанной работы
 class SimpleBlock implements IBlock {
@@ -16,7 +16,7 @@ class SimpleBlock implements IBlock {
     this.hash = this.calculateHash();
   }
 
-  protected calculateHash(nonce: number | string = '') {
+  protected calculateHash(nonce: number | string = ''): string {
     const data =
       this.index + this.previousBlockHash + this.timestamp + this.data + nonce;
 
@@ -74,7 +74,7 @@ class Blockchain {
   }
 
   private get latestBlock(): SimpleBlock {
-    //получаем ссылку на последний блок
+    //получаем последний блок
     return this.chain[this.chain.length - 1];
   }
 
@@ -85,6 +85,7 @@ class Blockchain {
       Date.now(),
       data
     );
+    console.log(this.chain[this.chain.length - 1]);
   }
 }
 
@@ -94,7 +95,6 @@ const miner = (isCalculate: boolean, amount: number): void => {
   for (let i = 1; i <= amount; i++) {
     blockchain.addBlock(`${i} block`); //добавляем блок
   }
-  console.log(blockchain);
 };
 
-miner(false, 10); //запуск
+miner(true, 10); //запуск
